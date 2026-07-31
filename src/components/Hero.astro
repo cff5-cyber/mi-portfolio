@@ -1,0 +1,45 @@
+---
+import { site } from '../data/site';
+---
+
+<section class="mx-auto flex max-w-5xl flex-col-reverse items-center gap-12 px-6 pb-24 pt-32 md:flex-row md:gap-16 md:pt-40">
+  <div class="flex-1 text-center md:text-left">
+    <p class="mb-3 text-sm font-medium tracking-wide text-stone-500 uppercase">
+      {site.role}
+    </p>
+    <h1 class="text-4xl font-semibold tracking-tight text-stone-50 md:text-5xl lg:text-6xl">
+      {site.name}
+    </h1>
+    <p class="mt-6 max-w-lg text-lg leading-relaxed text-stone-400">
+      {site.tagline}
+    </p>
+    <div class="mt-10 flex flex-wrap items-center justify-center gap-4 md:justify-start">
+      <a
+        href="#projects"
+        class="rounded-full bg-stone-100 px-6 py-2.5 text-sm font-medium text-stone-950 transition hover:bg-white"
+      >
+        Ver proyectos
+      </a>
+      <a
+        href="#contact"
+        class="rounded-full border border-stone-700 px-6 py-2.5 text-sm font-medium text-stone-300 transition hover:border-stone-400 hover:text-stone-100"
+      >
+        Contactar
+      </a>
+    </div>
+  </div>
+
+  <div class="shrink-0">
+    <div class="relative">
+      <div class="absolute -inset-3 rounded-full bg-stone-700/20 blur-2xl"></div>
+      <img
+        src={site.profileImage}
+        alt={`Foto de perfil de ${site.name}`}
+        width="280"
+        height="280"
+        class="relative size-56 rounded-full object-cover object-top ring-1 ring-stone-700 md:size-72"
+        loading="eager"
+      />
+    </div>
+  </div>
+</section>
