@@ -16,19 +16,26 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '22'
-          
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-        
-      - name: Install, build, and upload your site
-        uses: withastro/action@v3
+          node-version: 22
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build site
+        run: pnpm build
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          node-version: '22'
+          path: ./dist
 
   deploy:
     needs: build
