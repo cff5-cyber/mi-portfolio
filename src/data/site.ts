@@ -1,3 +1,5 @@
+const base = import.meta.env.BASE_URL;
+
 export const site = {
   name: 'Carlos Flores Fernández',
   role: 'Desarrollador Web',
@@ -5,8 +7,8 @@ export const site = {
   location: 'Fuentes de León, Badajoz',
   email: 'floresfernandezcarlos5@gmail.com',
   phone: '+34 693 57 56 02',
-  cvUrl: '/cv.pdf',
-  profileImage: '/profile.jpg',
+  cvUrl: `${base}cv.pdf`,
+  profileImage: `${base}profile.jpg`,
 } as const;
 
 export const about = {
