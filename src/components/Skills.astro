@@ -2,13 +2,13 @@
 import { skills } from '../data/site';
 ---
 
-<section class="border-t border-stone-800/80">
+<section class="section-divider">
   <div class="mx-auto max-w-5xl px-6 py-24">
-    <h2 class="text-sm font-medium tracking-wide text-stone-500 uppercase">Tecnologías</h2>
-    <ul class="mt-8 flex flex-wrap gap-3">
+    <h2 class="font-mono text-sm font-medium tracking-wide text-[rgb(var(--accent))] uppercase">Tecnologías</h2>
+    <ul class="mt-10 flex flex-wrap gap-3">
       {
         skills.map((skill) => (
-          <li class="rounded-full border border-stone-800 px-4 py-1.5 text-sm text-stone-400">
+          <li class="badge-shine rounded-full border border-stone-700/50 bg-stone-900/40 px-5 py-2 font-mono text-sm text-stone-400 transition-all duration-300 hover:border-[rgb(var(--accent)_/_0.4)] hover:bg-[rgb(var(--accent)_/_0.05)] hover:text-stone-200 hover:shadow-sm hover:shadow-[rgb(var(--accent)_/_0.1)]">
             {skill}
           </li>
         ))
