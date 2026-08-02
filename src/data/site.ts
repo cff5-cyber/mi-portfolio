@@ -55,11 +55,11 @@ export const projects = [
     github: '',
   },
   {
-    title: 'Parra-Barber',
+    title: 'Barberia',
     description:
       'Sitio web para barbería local con servicios, galería, reserva de citas y chatbot integrado.',
     tags: ['HTML/CSS', 'JavaScript', 'PWA'],
-    url: 'https://www.instagram.com/parrabarber/',
+    url: '',
     github: '',
   },
 ] as const;
