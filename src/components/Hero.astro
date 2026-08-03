@@ -35,8 +35,24 @@ import profileImage from '../assets/profile.jpg';
       {site.tagline}
     </p>
 
-    <!-- CTA buttons -->
-    <div class="animate-fade-in-up-4 mt-10 flex flex-wrap items-center justify-center gap-4 md:justify-start">
+  </div>
+
+  <!-- Profile image -->
+  <div class="animate-fade-in-up relative flex shrink-0 flex-col items-center">
+    <div class="relative">
+      <!-- Animated gradient orb -->
+      <div class="absolute -inset-6 animate-spin-slow rounded-full bg-gradient-to-tr from-[rgb(var(--accent))] via-[rgb(var(--accent-secondary))] to-[rgb(var(--accent-tertiary))] opacity-20 blur-2xl" aria-hidden="true"></div>
+      <div class="absolute -inset-3 rounded-full bg-gradient-to-br from-[rgb(var(--accent)_/_0.15)] to-[rgb(var(--accent-tertiary)_/_0.15)]" aria-hidden="true"></div>
+      <Image
+        src={profileImage}
+        alt={`Foto de perfil de ${site.name}`}
+        width={280}
+        height={280}
+        class="relative size-48 rounded-full object-cover object-top ring-2 ring-stone-700/50 ring-offset-2 ring-offset-stone-950 md:size-60"
+        loading="eager"
+      />
+    </div>
+    <div class="animate-fade-in-up-4 mt-8 flex flex-wrap items-center justify-center gap-4">
       <a
         href="#experience"
         class="group relative inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[rgb(var(--accent))] to-[rgb(var(--accent-secondary))] px-6 py-2.5 text-sm font-semibold text-white shadow-lg shadow-[rgb(var(--accent)_/_0.25)] transition-all duration-300 hover:shadow-xl hover:shadow-[rgb(var(--accent)_/_0.35)] hover:brightness-110"
@@ -50,23 +66,6 @@ import profileImage from '../assets/profile.jpg';
       >
         Contactar
       </a>
-    </div>
-  </div>
-
-  <!-- Profile image -->
-  <div class="animate-fade-in-up relative shrink-0">
-    <div class="relative">
-      <!-- Animated gradient orb -->
-      <div class="absolute -inset-6 animate-spin-slow rounded-full bg-gradient-to-tr from-[rgb(var(--accent))] via-[rgb(var(--accent-secondary))] to-[rgb(var(--accent-tertiary))] opacity-20 blur-2xl" aria-hidden="true"></div>
-      <div class="absolute -inset-3 rounded-full bg-gradient-to-br from-[rgb(var(--accent)_/_0.15)] to-[rgb(var(--accent-tertiary)_/_0.15)]" aria-hidden="true"></div>
-      <Image
-        src={profileImage}
-        alt={`Foto de perfil de ${site.name}`}
-        width={280}
-        height={280}
-        class="relative size-56 rounded-full object-cover object-top ring-2 ring-stone-700/50 ring-offset-2 ring-offset-stone-950 md:size-72"
-        loading="eager"
-      />
     </div>
   </div>
 </section>
