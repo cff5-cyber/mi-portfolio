@@ -18,25 +18,6 @@ export const about = {
   ],
 } as const;
 
-export const experience = [
-  {
-    company: 'MundoRed',
-    role: 'Desarrollador Web WordPress',
-    period: 'Prácticas',
-    description:
-      'Creación y personalización de sitios web, gestión de contenidos y maquetación adaptada para clientes finales.',
-    url: '', // Añade aquí el enlace si lo tienes
-  },
-  {
-    company: 'WifiWay',
-    role: 'Técnico Instalador de Fibra Óptica',
-    period: 'Prácticas',
-    description:
-      'Despliegue de infraestructura de red, configuración de equipos y resolución de incidencias de conectividad.',
-    url: '', // Añade aquí el enlace si lo tienes
-  },
-] as const;
-
 export const projects = [
   {
     title: 'Nova Store',
@@ -80,6 +61,5 @@ export const skills = [
 export const navLinks = [
   { label: 'Sobre mí', href: '#about' },
   { label: 'Experiencia', href: '#experience' },
-  { label: 'Proyectos', href: '#projects' },
   { label: 'Contacto', href: '#contact' },
 ] as const;
