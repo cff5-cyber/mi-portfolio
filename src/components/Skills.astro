@@ -3,12 +3,12 @@ import { skills } from '../data/site';
 ---
 
 <section class="section-divider">
-  <div class="mx-auto max-w-5xl px-6 py-24">
-    <h2 class="font-mono text-sm font-medium tracking-wide text-[rgb(var(--accent))] uppercase">Tecnologías</h2>
-    <ul class="mt-10 flex flex-wrap gap-3">
+  <div class="mx-auto max-w-5xl px-6 py-20 md:py-24">
+    <h2 class="font-mono text-sm font-semibold tracking-wider text-[rgb(var(--accent))] uppercase">Tecnologías</h2>
+    <ul class="mt-8 flex flex-wrap gap-3">
       {
         skills.map((skill) => (
-          <li class="badge-shine rounded-full border border-stone-700/50 bg-stone-900/40 px-5 py-2 font-mono text-sm text-stone-400 transition-all duration-300 hover:border-[rgb(var(--accent)_/_0.4)] hover:bg-[rgb(var(--accent)_/_0.05)] hover:text-stone-200 hover:shadow-sm hover:shadow-[rgb(var(--accent)_/_0.1)]">
+          <li class="badge-shine rounded-full border px-5 py-2.5 font-mono text-sm font-medium text-[var(--text-muted)] transition-all duration-300 hover:scale-105 hover:border-[rgb(var(--accent)_/_0.5)] hover:text-[var(--text-main)] hover:shadow-md hover:shadow-[rgb(var(--accent)_/_0.12)]">
             {skill}
           </li>
         ))

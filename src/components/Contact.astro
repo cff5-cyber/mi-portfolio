@@ -5,56 +5,46 @@ import { site } from '../data/site';
 <section id="contact" class="section-divider relative overflow-hidden">
   <!-- Background accent glow -->
   <div class="pointer-events-none absolute inset-0" aria-hidden="true">
-    <div class="absolute bottom-0 left-1/2 h-[400px] w-[600px] -translate-x-1/2 translate-y-1/2 rounded-full bg-[rgb(var(--accent))] opacity-[0.03] blur-[100px]"></div>
+    <div class="absolute bottom-0 left-1/2 h-[400px] w-[600px] -translate-x-1/2 translate-y-1/2 rounded-full bg-[rgb(var(--accent))] opacity-10 blur-[100px]"></div>
   </div>
 
-  <div class="relative mx-auto max-w-5xl px-6 py-24">
-    <h2 class="font-mono text-sm font-medium tracking-wide text-[rgb(var(--accent))] uppercase">Contacto</h2>
+  <div class="relative mx-auto max-w-5xl px-6 py-20 md:py-24">
+    <h2 class="font-mono text-sm font-semibold tracking-wider text-[rgb(var(--accent))] uppercase">Contacto</h2>
 
-    <p class="text-gradient mt-6 text-3xl font-bold tracking-tight md:text-4xl">
+    <p class="text-gradient mt-6 text-3xl font-extrabold tracking-tight sm:text-4xl md:text-5xl">
       ¿Hablamos?
     </p>
-    <p class="mt-4 max-w-md text-stone-400">
+    <p class="mt-4 max-w-md text-base text-[var(--text-muted)]">
       Estoy abierto a nuevas oportunidades y colaboraciones. Escríbeme y hablemos de tu proyecto.
     </p>
 
     <div class="mt-10 flex flex-col gap-5 sm:flex-row sm:items-center sm:gap-8">
       <a
         href={`mailto:${site.email}`}
-        class="link-underline-gradient text-lg font-medium text-stone-100 transition hover:text-white"
+        class="link-underline-gradient text-lg font-semibold text-[var(--text-main)] transition-colors hover:text-[rgb(var(--accent))]"
       >
         {site.email}
       </a>
-      <span class="hidden text-stone-700/50 sm:inline" aria-hidden="true">│</span>
+      <span class="hidden text-[var(--text-subtle)] opacity-40 sm:inline" aria-hidden="true">│</span>
       <a
         href={`tel:${site.phone.replace(/\s/g, '')}`}
-        class="text-stone-400 transition hover:text-stone-200"
+        class="text-base text-[var(--text-muted)] transition-colors hover:text-[var(--text-main)]"
       >
         {site.phone}
       </a>
-      <span class="hidden text-stone-700/50 sm:inline" aria-hidden="true">│</span>
-      <span class="font-mono text-sm text-stone-500">{site.location}</span>
+      <span class="hidden text-[var(--text-subtle)] opacity-40 sm:inline" aria-hidden="true">│</span>
+      <span class="font-mono text-sm font-medium text-[var(--text-subtle)]">{site.location}</span>
     </div>
-
-    <a
-      href={site.cvUrl}
-      target="_blank"
-      rel="noopener noreferrer"
-      class="group mt-10 inline-flex items-center gap-2 rounded-full border border-[rgb(var(--accent)_/_0.3)] bg-[rgb(var(--accent)_/_0.05)] px-5 py-2.5 text-sm font-medium text-[rgb(var(--accent))] transition-all duration-300 hover:border-[rgb(var(--accent)_/_0.5)] hover:bg-[rgb(var(--accent)_/_0.1)] hover:shadow-lg hover:shadow-[rgb(var(--accent)_/_0.1)]"
-    >
-      Descargar CV
-      <span class="transition-transform duration-300 group-hover:translate-y-0.5" aria-hidden="true">↓</span>
-    </a>
   </div>
 </section>
 
-<footer class="border-t border-stone-800/30">
+<footer class="border-t border-[var(--border-color)]">
   <div class="mx-auto flex max-w-5xl flex-col items-center justify-between gap-3 px-6 py-8 sm:flex-row">
-    <p class="font-mono text-xs text-stone-600">
+    <p class="font-mono text-xs text-[var(--text-subtle)]">
       © {new Date().getFullYear()} {site.name}
     </p>
-    <p class="font-mono text-xs text-stone-600">
-      Hecho con <span class="text-[rgb(var(--accent)_/_0.6)]">♥</span> usando Astro & Tailwind
+    <p class="font-mono text-xs text-[var(--text-subtle)]">
+      Hecho con <span class="text-[rgb(var(--accent))]">♥</span> usando Astro & Tailwind
     </p>
   </div>
 </footer>

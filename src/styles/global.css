@@ -5,28 +5,72 @@
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
 }
 
-/* ── Accent palette ── */
+/* ── Color Palette & Theme Tokens ── */
 :root {
-  --accent: 255 115 179;         /* violet-pink */
-  --accent-secondary: 139 92 246; /* violet-500 */
-  --accent-tertiary: 99 102 241;  /* indigo-500 */
+  /* Default Light Theme variables */
+  --accent: 147 51 234;          /* violet-600 */
+  --accent-secondary: 236 72 153; /* pink-500 */
+  --accent-tertiary: 79 70 229;   /* indigo-600 */
+
+  --bg-color: #f8fafc;
+  --bg-mesh-1: rgba(147, 51, 234, 0.05);
+  --bg-mesh-2: rgba(236, 72, 153, 0.04);
+
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --text-subtle: #64748b;
+
+  --border-color: rgba(226, 232, 240, 0.8);
+  --glass-bg: rgba(255, 255, 255, 0.75);
+  --glass-border: rgba(203, 213, 225, 0.6);
+
+  --card-bg: rgba(255, 255, 255, 0.85);
+  --card-border: rgba(226, 232, 240, 0.9);
+  --badge-bg: rgba(241, 245, 249, 0.9);
+}
+
+html.dark {
+  /* Dark Theme variables */
+  --accent: 168 85 247;          /* violet-500 */
+  --accent-secondary: 244 114 182; /* pink-400 */
+  --accent-tertiary: 129 140 248;  /* indigo-400 */
+
+  --bg-color: #09090b;
+  --bg-mesh-1: rgba(168, 85, 247, 0.08);
+  --bg-mesh-2: rgba(244, 114, 182, 0.05);
+
+  --text-main: #f4f4f5;
+  --text-muted: #a1a1aa;
+  --text-subtle: #71717a;
+
+  --border-color: rgba(39, 39, 42, 0.8);
+  --glass-bg: rgba(24, 24, 27, 0.65);
+  --glass-border: rgba(63, 63, 70, 0.4);
+
+  --card-bg: rgba(24, 24, 27, 0.8);
+  --card-border: rgba(63, 63, 70, 0.5);
+  --badge-bg: rgba(39, 39, 42, 0.6);
 }
 
 html {
   font-family: var(--font-sans);
+  color-scheme: light dark;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body {
+  background-color: var(--bg-color);
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -20%, var(--bg-mesh-1), transparent),
+    radial-gradient(ellipse 60% 40% at 80% 50%, var(--bg-mesh-2), transparent);
+  color: var(--text-main);
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* ── Selection ── */
 ::selection {
   background-color: rgb(var(--accent) / 0.25);
-}
-
-/* ── Subtle mesh-gradient background ── */
-body {
-  background:
-    radial-gradient(ellipse 80% 50% at 50% -20%, rgb(var(--accent-secondary) / 0.08), transparent),
-    radial-gradient(ellipse 60% 40% at 80% 50%, rgb(var(--accent-tertiary) / 0.05), transparent),
-    #0a0a0a;
 }
 
 /* ── Keyframe animations ── */
@@ -94,7 +138,7 @@ body {
 
 /* ── Gradient text utility ── */
 .text-gradient {
-  background: linear-gradient(135deg, #f5f5f4, #a8a29e 80%);
+  background: linear-gradient(135deg, var(--text-main), var(--text-muted) 85%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -109,17 +153,17 @@ body {
 
 /* ── Glass card ── */
 .glass {
-  background: rgb(28 25 23 / 0.6);
+  background: var(--glass-bg);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgb(68 64 60 / 0.3);
+  border: 1px solid var(--glass-border);
 }
 
 /* ── Gradient border card ── */
 .card-gradient-border {
   position: relative;
-  background: rgb(28 25 23 / 0.8);
-  border: 1px solid rgb(68 64 60 / 0.4);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   transition: all 0.3s ease;
 }
 
@@ -154,13 +198,15 @@ body {
 
 .card-gradient-border:hover {
   border-color: transparent;
-  box-shadow: 0 0 24px -8px rgb(var(--accent) / 0.15);
+  box-shadow: 0 10px 30px -10px rgb(var(--accent) / 0.2);
 }
 
 /* ── Shine badge effect ── */
 .badge-shine {
   position: relative;
   overflow: hidden;
+  background-color: var(--badge-bg);
+  border-color: var(--card-border);
 }
 
 .badge-shine::after {
@@ -170,7 +216,7 @@ body {
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgb(255 255 255 / 0.06) 50%,
+    rgb(var(--accent) / 0.08) 50%,
     transparent 100%
   );
   background-size: 200% 100%;
@@ -194,9 +240,9 @@ body {
   background-size: 100% 2px;
 }
 
-/* ── Section divider (replaces border-t) ── */
+/* ── Section divider ── */
 .section-divider {
-  border-top: 1px solid rgb(68 64 60 / 0.3);
+  border-top: 1px solid var(--border-color);
   position: relative;
 }
 
@@ -206,12 +252,12 @@ body {
   top: -1px;
   left: 50%;
   transform: translateX(-50%);
-  width: 120px;
+  width: 140px;
   height: 1px;
   background: linear-gradient(
     90deg,
     transparent,
-    rgb(var(--accent) / 0.4),
+    rgb(var(--accent) / 0.5),
     transparent
   );
 }
