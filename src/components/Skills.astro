@@ -1,18 +1,383 @@
 ---
 import { skills } from '../data/site';
+
+interface TechItem {
+  name: string;
+  category: 'Frontend' | 'Backend' | 'Herramientas';
+  color: string;
+  iconSvg: string;
+}
+
+const techDetails: Record<string, TechItem> = {
+  Astro: {
+    name: 'Astro',
+    category: 'Frontend',
+    color: '#FF5D01',
+    iconSvg: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15.5 14h.01M12 14h.01M8.5 14h.01M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L4 21l3.5-.95A8.94 8.94 0 0012 21c4.97 0 9-4.03 9-9s-4.03-9-9-9z"/>`,
+  },
+  React: {
+    name: 'React',
+    category: 'Frontend',
+    color: '#61DAFB',
+    iconSvg: `<ellipse cx="12" cy="12" rx="9" ry="3.5" transform="rotate(30 12 12)" stroke-width="1.5"/><ellipse cx="12" cy="12" rx="9" ry="3.5" transform="rotate(90 12 12)" stroke-width="1.5"/><ellipse cx="12" cy="12" rx="9" ry="3.5" transform="rotate(150 12 12)" stroke-width="1.5"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/>`,
+  },
+  JavaScript: {
+    name: 'JavaScript',
+    category: 'Frontend',
+    color: '#F7DF1E',
+    iconSvg: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M8 16v-4a2 2 0 114 0v4m-4-2h4m4 2v-6m0 0l2 2m-2-2l-2 2"/>`,
+  },
+  TypeScript: {
+    name: 'TypeScript',
+    category: 'Frontend',
+    color: '#3178C6',
+    iconSvg: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 9h6m-3 0v9m4-5h3.5M16.5 18h3"/>`,
+  },
+  Python: {
+    name: 'Python',
+    category: 'Backend',
+    color: '#3776AB',
+    iconSvg: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 3c-4 0-4 2-4 4v2h8V7c0-2 0-4-4-4zm-4 8v2c0 2 0 4 4 4s4-2 4-4v-2H8z"/><circle cx="9" cy="6" r="1" fill="currentColor"/><circle cx="15" cy="15" r="1" fill="currentColor"/>`,
+  },
+  Django: {
+    name: 'Django',
+    category: 'Backend',
+    color: '#2BAF74',
+    iconSvg: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M19 11A7 7 0 015 11M12 4v16m-4-8h8"/>`,
+  },
+  FastAPI: {
+    name: 'FastAPI',
+    category: 'Backend',
+    color: '#009688',
+    iconSvg: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>`,
+  },
+  Java: {
+    name: 'Java',
+    category: 'Backend',
+    color: '#ED8B00',
+    iconSvg: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M7 18a5 5 0 0010 0M6 14s2-2 6-2 6 2 6 2M10 3s1 2-2 4c0 0 3-1 4-3M5 21h14"/>`,
+  },
+  'Spring Boot': {
+    name: 'Spring Boot',
+    category: 'Backend',
+    color: '#6DB33F',
+    iconSvg: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 3v18m-7-9a7 7 0 0114 0"/>`,
+  },
+  PHP: {
+    name: 'PHP',
+    category: 'Backend',
+    color: '#777BB4',
+    iconSvg: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>`,
+  },
+  Laravel: {
+    name: 'Laravel',
+    category: 'Backend',
+    color: '#FF2D20',
+    iconSvg: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>`,
+  },
+  SQL: {
+    name: 'SQL',
+    category: 'Herramientas',
+    color: '#336791',
+    iconSvg: `<ellipse cx="12" cy="6" rx="8" ry="3" stroke-width="1.8"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 6v6c0 1.66 3.58 3 8 3s8-1.34 8-3V6M4 12v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6"/>`,
+  },
+  Git: {
+    name: 'Git',
+    category: 'Herramientas',
+    color: '#F05032',
+    iconSvg: `<circle cx="6" cy="6" r="2" stroke-width="1.8"/><circle cx="18" cy="18" r="2" stroke-width="1.8"/><circle cx="6" cy="18" r="2" stroke-width="1.8"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M6 8v8M8 6h7a3 3 0 013 3v7"/>`,
+  },
+  'HTML/CSS': {
+    name: 'HTML/CSS',
+    category: 'Frontend',
+    color: '#E34F26',
+    iconSvg: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 4l2 16 6 2 6-2 2-16H4zm4 4h8m-8 4h8"/>`,
+  },
+  WordPress: {
+    name: 'WordPress',
+    category: 'Herramientas',
+    color: '#21759B',
+    iconSvg: `<circle cx="12" cy="12" r="9" stroke-width="1.8"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9.5 9l2.5 8 2-6 2 6 2.5-8"/>`,
+  },
+};
+
+const allSkills: TechItem[] = skills.map((name) => {
+  return (
+    techDetails[name] || {
+      name,
+      category: 'Herramientas',
+      color: '#A855F7',
+      iconSvg: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>`,
+    }
+  );
+});
+
+// Split items into 2 rows for dual opposite marquee effect
+const half = Math.ceil(allSkills.length / 2);
+const row1 = allSkills.slice(0, half);
+const row2 = allSkills.slice(half);
+
+// Duplicate rows for smooth continuous scrolling
+const row1Loop = [...row1, ...row1, ...row1];
+const row2Loop = [...row2, ...row2, ...row2];
 ---
 
-<section class="section-divider">
-  <div class="mx-auto max-w-5xl px-6 py-20 md:py-24">
-    <h2 class="font-mono text-sm font-semibold tracking-wider text-[rgb(var(--accent))] uppercase">Tecnologías</h2>
-    <ul class="mt-8 flex flex-wrap gap-3">
-      {
-        skills.map((skill) => (
-          <li class="badge-shine rounded-full border px-5 py-2.5 font-mono text-sm font-medium text-[var(--text-muted)] transition-all duration-300 hover:scale-105 hover:border-[rgb(var(--accent)_/_0.5)] hover:text-[var(--text-main)] hover:shadow-md hover:shadow-[rgb(var(--accent)_/_0.12)]">
-            {skill}
-          </li>
-        ))
-      }
-    </ul>
+<section id="skills" class="section-divider overflow-hidden py-20 md:py-24">
+  <div class="mx-auto max-w-5xl px-6">
+    <!-- Section Header -->
+    <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+      <div>
+        <div class="inline-flex items-center gap-2 rounded-full border border-[rgb(var(--accent)_/_0.2)] bg-[rgb(var(--accent)_/_0.05)] px-3 py-1 font-mono text-xs font-semibold text-[rgb(var(--accent))]">
+          <span class="size-2 rounded-full bg-[rgb(var(--accent))] animate-pulse-dot"></span>
+          <span>STACK TÉCNICO</span>
+        </div>
+        <h2 class="mt-3 font-sans text-3xl font-extrabold tracking-tight text-[var(--text-main)] sm:text-4xl">
+          Tecnologías <span class="text-gradient-accent">& Frameworks</span>
+        </h2>
+        <p class="mt-2 max-w-xl text-sm text-[var(--text-muted)] sm:text-base">
+          Herramientas y lenguajes con los que construyo aplicaciones robustas, desde el frontend dinámico hasta el backend escalable.
+        </p>
+      </div>
+
+      <!-- Controls: Pause / Play & Status -->
+      <div class="flex items-center gap-3">
+        <div class="flex items-center gap-1.5 rounded-full border border-[var(--border-color)] bg-[var(--card-bg)] px-3 py-1.5 font-mono text-xs text-[var(--text-muted)] shadow-sm backdrop-blur-md">
+          <span id="marquee-status-dot" class="size-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span id="marquee-status-text">Marquesina en vivo</span>
+        </div>
+
+        <button
+          id="marquee-toggle-btn"
+          type="button"
+          aria-label="Pausar o reanudar animación"
+          class="flex size-9 items-center justify-center rounded-full border border-[var(--border-color)] bg-[var(--card-bg)] text-[var(--text-muted)] shadow-sm transition-all hover:scale-105 hover:border-[rgb(var(--accent)_/_0.5)] hover:text-[var(--text-main)] active:scale-95"
+          title="Pausar / Reanudar marquesina"
+        >
+          <!-- Pause Icon -->
+          <svg id="pause-icon" class="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+          <!-- Play Icon -->
+          <svg id="play-icon" class="hidden size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Category Filter Bar -->
+    <div class="mt-8 flex flex-wrap items-center gap-2 border-b border-[var(--border-color)] pb-4">
+      <span class="mr-2 font-mono text-xs font-medium text-[var(--text-subtle)] uppercase">Filtrar:</span>
+      <button
+        type="button"
+        data-filter="all"
+        class="skill-filter-btn active-filter rounded-full border border-[rgb(var(--accent)_/_0.5)] bg-[rgb(var(--accent)_/_0.15)] px-3.5 py-1 font-mono text-xs font-semibold text-[rgb(var(--accent))] transition-all hover:scale-105"
+      >
+        Todas ({allSkills.length})
+      </button>
+      <button
+        type="button"
+        data-filter="Frontend"
+        class="skill-filter-btn rounded-full border border-transparent bg-[var(--badge-bg)] px-3.5 py-1 font-mono text-xs font-medium text-[var(--text-muted)] transition-all hover:bg-[rgb(var(--accent)_/_0.1)] hover:text-[var(--text-main)]"
+      >
+        Frontend
+      </button>
+      <button
+        type="button"
+        data-filter="Backend"
+        class="skill-filter-btn rounded-full border border-transparent bg-[var(--badge-bg)] px-3.5 py-1 font-mono text-xs font-medium text-[var(--text-muted)] transition-all hover:bg-[rgb(var(--accent)_/_0.1)] hover:text-[var(--text-main)]"
+      >
+        Backend (Java, Spring, PHP, Laravel...)
+      </button>
+      <button
+        type="button"
+        data-filter="Herramientas"
+        class="skill-filter-btn rounded-full border border-transparent bg-[var(--badge-bg)] px-3.5 py-1 font-mono text-xs font-medium text-[var(--text-muted)] transition-all hover:bg-[rgb(var(--accent)_/_0.1)] hover:text-[var(--text-main)]"
+      >
+        Bases de Datos & Herramientas
+      </button>
+    </div>
+  </div>
+
+  <!-- Marquee Container -->
+  <div id="marquee-container" class="marquee-wrapper marquee-mask mt-8 flex flex-col gap-4 py-4 select-none">
+    <!-- Row 1: Left Animation -->
+    <div class="overflow-hidden py-1">
+      <div class="animate-marquee-left flex gap-4">
+        {
+          row1Loop.map((tech, index) => (
+            <div
+              data-category={tech.category}
+              class="tech-card group relative flex items-center gap-3 rounded-2xl border border-[var(--card-border)] bg-[var(--card-bg)] px-5 py-3.5 shadow-sm transition-all duration-300 hover:z-10 hover:-translate-y-1 hover:scale-105 hover:border-transparent hover:shadow-xl"
+              style={`--brand-color: ${tech.color};`}
+            >
+              <!-- Glow backdrop on hover -->
+              <div
+                class="absolute inset-0 -z-10 rounded-2xl opacity-0 blur-md transition-opacity duration-300 group-hover:opacity-40"
+                style={`background: ${tech.color};`}
+              ></div>
+
+              <!-- Tech Icon Badge -->
+              <div
+                class="flex size-10 shrink-0 items-center justify-center rounded-xl transition-all duration-300 group-hover:scale-110"
+                style={`background: ${tech.color}15; color: ${tech.color}; border: 1px solid ${tech.color}30;`}
+              >
+                <svg class="size-5 stroke-current" fill="none" viewBox="0 0 24 24" set:html={tech.iconSvg} />
+              </div>
+
+              <!-- Tech Info -->
+              <div class="flex flex-col">
+                <span class="font-sans text-sm font-bold text-[var(--text-main)] transition-colors group-hover:text-[var(--text-main)]">
+                  {tech.name}
+                </span>
+                <span class="font-mono text-[10px] font-medium tracking-wide text-[var(--text-subtle)] uppercase">
+                  {tech.category}
+                </span>
+              </div>
+
+              <!-- Top Right Highlight Dot -->
+              <span
+                class="absolute top-2 right-2 size-1.5 rounded-full opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                style={`background: ${tech.color}; box-shadow: 0 0 8px ${tech.color};`}
+              ></span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <!-- Row 2: Right Animation -->
+    <div class="overflow-hidden py-1">
+      <div class="animate-marquee-right flex gap-4">
+        {
+          row2Loop.map((tech, index) => (
+            <div
+              data-category={tech.category}
+              class="tech-card group relative flex items-center gap-3 rounded-2xl border border-[var(--card-border)] bg-[var(--card-bg)] px-5 py-3.5 shadow-sm transition-all duration-300 hover:z-10 hover:-translate-y-1 hover:scale-105 hover:border-transparent hover:shadow-xl"
+              style={`--brand-color: ${tech.color};`}
+            >
+              <!-- Glow backdrop on hover -->
+              <div
+                class="absolute inset-0 -z-10 rounded-2xl opacity-0 blur-md transition-opacity duration-300 group-hover:opacity-40"
+                style={`background: ${tech.color};`}
+              ></div>
+
+              <!-- Tech Icon Badge -->
+              <div
+                class="flex size-10 shrink-0 items-center justify-center rounded-xl transition-all duration-300 group-hover:scale-110"
+                style={`background: ${tech.color}15; color: ${tech.color}; border: 1px solid ${tech.color}30;`}
+              >
+                <svg class="size-5 stroke-current" fill="none" viewBox="0 0 24 24" set:html={tech.iconSvg} />
+              </div>
+
+              <!-- Tech Info -->
+              <div class="flex flex-col">
+                <span class="font-sans text-sm font-bold text-[var(--text-main)] transition-colors group-hover:text-[var(--text-main)]">
+                  {tech.name}
+                </span>
+                <span class="font-mono text-[10px] font-medium tracking-wide text-[var(--text-subtle)] uppercase">
+                  {tech.category}
+                </span>
+              </div>
+
+              <!-- Top Right Highlight Dot -->
+              <span
+                class="absolute top-2 right-2 size-1.5 rounded-full opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                style={`background: ${tech.color}; box-shadow: 0 0 8px ${tech.color};`}
+              ></span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive Hint -->
+  <div class="mt-4 text-center">
+    <p class="font-mono text-xs text-[var(--text-subtle)]">
+      💡 <span class="opacity-80">Pasa el cursor sobre cualquier tecnología para pausar y destacar</span>
+    </p>
   </div>
 </section>
+
+<script>
+  function setupMarqueeControls() {
+    const container = document.getElementById('marquee-container');
+    const toggleBtn = document.getElementById('marquee-toggle-btn');
+    const pauseIcon = document.getElementById('pause-icon');
+    const playIcon = document.getElementById('play-icon');
+    const statusDot = document.getElementById('marquee-status-dot');
+    const statusText = document.getElementById('marquee-status-text');
+    const filterBtns = document.querySelectorAll<HTMLButtonElement>('.skill-filter-btn');
+    const techCards = document.querySelectorAll<HTMLElement>('.tech-card');
+
+    let isPaused = false;
+
+    // 1. Play / Pause Button Logic
+    toggleBtn?.addEventListener('click', () => {
+      isPaused = !isPaused;
+      if (isPaused) {
+        container?.classList.add('marquee-paused');
+        pauseIcon?.classList.add('hidden');
+        playIcon?.classList.remove('hidden');
+        statusDot?.classList.remove('bg-emerald-500');
+        statusDot?.classList.add('bg-amber-500');
+        if (statusText) statusText.textContent = 'Marquesina pausada';
+      } else {
+        container?.classList.remove('marquee-paused');
+        pauseIcon?.classList.remove('hidden');
+        playIcon?.classList.add('hidden');
+        statusDot?.classList.remove('bg-amber-500');
+        statusDot?.classList.add('bg-emerald-500');
+        if (statusText) statusText.textContent = 'Marquesina en vivo';
+      }
+    });
+
+    // 2. Category Filter Buttons Logic
+    filterBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const filter = btn.getAttribute('data-filter');
+
+        // Update active filter button styling
+        filterBtns.forEach((b) => {
+          b.classList.remove(
+            'active-filter',
+            'border-[rgb(var(--accent)_/_0.5)]',
+            'bg-[rgb(var(--accent)_/_0.15)]',
+            'text-[rgb(var(--accent))]',
+            'font-semibold'
+          );
+          b.classList.add('border-transparent', 'bg-[var(--badge-bg)]', 'text-[var(--text-muted)]', 'font-medium');
+        });
+
+        btn.classList.remove('border-transparent', 'bg-[var(--badge-bg)]', 'text-[var(--text-muted)]', 'font-medium');
+        btn.classList.add(
+          'active-filter',
+          'border-[rgb(var(--accent)_/_0.5)]',
+          'bg-[rgb(var(--accent)_/_0.15)]',
+          'text-[rgb(var(--accent))]',
+          'font-semibold'
+        );
+
+        // Highlight or Dim Cards
+        techCards.forEach((card) => {
+          const category = card.getAttribute('data-category');
+          if (filter === 'all' || category === filter) {
+            card.style.opacity = '1';
+            card.style.filter = 'none';
+            card.style.transform = 'scale(1)';
+          } else {
+            card.style.opacity = '0.3';
+            card.style.filter = 'grayscale(0.6) blur(0.5px)';
+            card.style.transform = 'scale(0.95)';
+          }
+        });
+      });
+    });
+  }
+
+  // Run setup on load and after Astro page swaps
+  setupMarqueeControls();
+  document.addEventListener('astro:after-swap', setupMarqueeControls);
+</script>
