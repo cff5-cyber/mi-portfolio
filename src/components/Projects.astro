@@ -18,7 +18,7 @@ import { projects } from '../data/site';
               ('image' in project && project.image) && (
                 <div class="mb-5 aspect-video w-full overflow-hidden rounded-xl border border-[rgb(var(--accent)_/_0.15)] shadow-sm">
                   <img
-                    src={project.image as string}
+                    src={`${import.meta.env.BASE_URL.replace(/\/$/, '')}${project.image}`}
                     alt={`Captura de pantalla de ${project.title}`}
                     class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"
