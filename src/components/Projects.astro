@@ -13,6 +13,20 @@ import { projects } from '../data/site';
       {
         projects.map((project, i) => (
           <article class="card-gradient-border group flex flex-col rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1">
+            {/* Project Image */}
+            {
+              ('image' in project && project.image) && (
+                <div class="mb-5 aspect-video w-full overflow-hidden rounded-xl border border-[rgb(var(--accent)_/_0.15)] shadow-sm">
+                  <img
+                    src={project.image as string}
+                    alt={`Captura de pantalla de ${project.title}`}
+                    class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                </div>
+              )
+            }
+
             {/* Project number */}
             <span class="font-mono text-xs font-semibold text-[var(--text-subtle)]" aria-hidden="true">
               #{String(i + 1).padStart(2, '0')}

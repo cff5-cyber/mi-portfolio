@@ -20,6 +20,7 @@ export const projects = [
     description:
       'Sitio web para barbería local con servicios, galería, reserva de citas y chatbot integrado.',
     tags: ['React', 'Spring Boot'],
+    image: '/images/projects/barberia.png',
     url: 'https://barberia-mzbj.onrender.com', // Enlace al proyecto o demo
     github: '', // Enlace al repositorio
   },
@@ -28,6 +29,7 @@ export const projects = [
     description:
       'Sistema de gestión para clínica dental con control de citas, historiales médicos y base de datos integrada.',
     tags: ['JavaScript', 'FastAPI'],
+    image: '/images/projects/dentista.png',
     url: 'https://dentista-i5vh.onrender.com',
     github: '',
   },
@@ -36,6 +38,7 @@ export const projects = [
     description:
       'Plataforma integral para gestión de tareas personales, organización diaria y seguimiento de metas.',
     tags: ['Astro', 'Laravel'],
+    image: '/images/projects/gestionPersonal.png',
     url: 'https://gestionpersonal-7ifb.onrender.com',
     github: '',
   },
