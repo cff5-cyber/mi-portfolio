@@ -16,27 +16,27 @@ export const about = {
 
 export const projects = [
   {
-    title: 'Nova Store',
+    title: 'Barbería',
     description:
-      'E-commerce SPA con catálogo de productos, filtros por categoría, carrito de compra y flujo de pedidos.',
-    tags: ['React', 'Vite', 'Tailwind'],
-    url: '', // Enlace al proyecto o demo
+      'Sitio web para barbería local con servicios, galería, reserva de citas y chatbot integrado.',
+    tags: ['React', 'Spring Boot'],
+    url: 'https://barberia-mzbj.onrender.com', // Enlace al proyecto o demo
     github: '', // Enlace al repositorio
   },
   {
-    title: 'LÚMINA',
+    title: 'Santuario Clínico (Dentista)',
     description:
-      'Agenda digital para peluquería: reserva de citas, gestión de servicios y panel de administración.',
-    tags: ['React', 'FastAPI', 'MySQL'],
-    url: '',
+      'Sistema de gestión para clínica dental con control de citas, historiales médicos y base de datos integrada.',
+    tags: ['JavaScript', 'FastAPI'],
+    url: 'https://dentista-i5vh.onrender.com',
     github: '',
   },
   {
-    title: 'Barberia',
+    title: 'Gestión Personal',
     description:
-      'Sitio web para barbería local con servicios, galería, reserva de citas y chatbot integrado.',
-    tags: ['HTML/CSS', 'JavaScript', 'PWA'],
-    url: '',
+      'Plataforma integral para gestión de tareas personales, organización diaria y seguimiento de metas.',
+    tags: ['Astro', 'Laravel'],
+    url: 'https://gestionpersonal-7ifb.onrender.com',
     github: '',
   },
 ] as const;
