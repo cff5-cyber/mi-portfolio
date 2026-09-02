@@ -25,7 +25,7 @@ export const projects = [
     github: '', // Enlace al repositorio
   },
   {
-    title: 'Santuario Clínico (Dentista)',
+    title: 'Dentista',
     description:
       'Sistema de gestión para clínica dental con control de citas, historiales médicos y base de datos integrada.',
     tags: ['JavaScript', 'FastAPI'],
