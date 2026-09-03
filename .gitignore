@@ -1,0 +1,25 @@
+# Dependencias
+node_modules/
+dist/
+
+# Directorios de Astro
+.astro/
+
+# Archivos de entorno
+.env
+.env.*
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Ignorar archivos de Docker y scripts locales a petición del usuario
+Dockerfile
+docker-compose.yml
+start.sh

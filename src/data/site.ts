@@ -5,6 +5,7 @@ export const site = {
   location: 'Fuentes de León, Badajoz',
   email: 'floresfernandezcarlos5@gmail.com',
   phone: '+34 693 57 56 02',
+  linkedin: 'https://www.linkedin.com/in/carlos-flores-fernández-920265280',
 } as const;
 
 export const about = {

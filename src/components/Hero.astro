@@ -1,5 +1,6 @@
 ---
 import { site } from '../data/site';
+import SocialPill from './SocialPill.astro';
 ---
 
 <section class="relative mx-auto flex max-w-4xl flex-col items-center px-6 pb-20 pt-32 text-center md:pb-28 md:pt-40">
@@ -36,6 +37,18 @@ import { site } from '../data/site';
       {site.tagline}
     </p>
 
+    <!-- Social Pills -->
+    <nav class="animate-fade-in-up-4 mt-8 flex flex-wrap items-center justify-center gap-4">
+      <SocialPill href={site.linkedin}>
+        <svg class="size-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+        LinkedIn
+      </SocialPill>
+      <SocialPill href={`mailto:${site.email}`}>
+        <svg class="size-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        {site.email}
+      </SocialPill>
+    </nav>
+
     <!-- CTAs -->
     <div class="animate-fade-in-up-4 mt-8 flex flex-wrap items-center justify-center gap-4">
       <a
@@ -68,9 +81,9 @@ import { site } from '../data/site';
       </div>
 
       <div class="glass flex flex-col items-center rounded-2xl p-4 text-center transition-all duration-300 hover:border-[rgb(var(--accent)_/_0.3)]">
-        <span class="text-xl" aria-hidden="true">📍</span>
-        <span class="mt-2 text-xs font-mono font-medium text-[var(--text-subtle)] uppercase">Ubicación</span>
-        <span class="mt-1 text-sm font-semibold text-[var(--text-main)]">{site.location}</span>
+        <span class="text-xl" aria-hidden="true">💡</span>
+        <span class="mt-2 text-xs font-mono font-medium text-[var(--text-subtle)] uppercase">Filosofía</span>
+        <span class="mt-1 text-sm font-semibold text-[var(--text-main)]">Código Limpio & Escalable</span>
       </div>
     </div>
   </div>

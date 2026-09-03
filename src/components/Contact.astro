@@ -9,7 +9,10 @@ import { site } from '../data/site';
   </div>
 
   <div class="relative mx-auto max-w-5xl px-6 py-20 md:py-24">
-    <h2 class="font-mono text-sm font-semibold tracking-wider text-[rgb(var(--accent))] uppercase">Contacto</h2>
+    <h2 class="flex items-center gap-2 font-mono text-sm font-semibold tracking-wider text-[rgb(var(--accent))] uppercase">
+      <svg class="size-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+      Contacto
+    </h2>
 
     <p class="text-gradient mt-6 text-3xl font-extrabold tracking-tight sm:text-4xl md:text-5xl">
       ¿Hablamos?
@@ -21,19 +24,23 @@ import { site } from '../data/site';
     <div class="mt-10 flex flex-col gap-5 sm:flex-row sm:items-center sm:gap-8">
       <a
         href={`mailto:${site.email}`}
-        class="link-underline-gradient text-lg font-semibold text-[var(--text-main)] transition-colors hover:text-[rgb(var(--accent))]"
-      >
+        class="link-underline-gradient text-lg font-semibold text-[var(--text-main)] transition-colors hover:text-[rgb(var(--accent))]">
         {site.email}
       </a>
       <span class="hidden text-[var(--text-subtle)] opacity-40 sm:inline" aria-hidden="true">│</span>
       <a
         href={`tel:${site.phone.replace(/\s/g, '')}`}
-        class="text-base text-[var(--text-muted)] transition-colors hover:text-[var(--text-main)]"
-      >
+        class="text-base text-[var(--text-muted)] transition-colors hover:text-[var(--text-main)]">
         {site.phone}
       </a>
       <span class="hidden text-[var(--text-subtle)] opacity-40 sm:inline" aria-hidden="true">│</span>
-      <span class="font-mono text-sm font-medium text-[var(--text-subtle)]">{site.location}</span>
+      <a
+        href={site.linkedin}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-base text-[var(--text-muted)] transition-colors hover:text-[#0A66C2]">
+        LinkedIn
+      </a>
     </div>
   </div>
 </section>
